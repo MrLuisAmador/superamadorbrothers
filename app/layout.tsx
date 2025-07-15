@@ -16,7 +16,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Home | Super Amador Brothers",
+  title: "Home | Those Amador Bros",
   description: "The home of the best Amador brothers",
 };
 
