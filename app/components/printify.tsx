@@ -1,4 +1,5 @@
 import { cache } from 'react';
+import Image from "next/image";
 
 interface PrintifyProduct {
   id: string;
@@ -54,10 +55,12 @@ export default async function PrintifyProducts() {
       {products.map((product) => (
         <div key={product.id} className="border rounded-lg shadow-lg overflow-hidden">
           {product.images[0] && (
-            <img
+            <Image
               src={product.images[0].src}
               alt={product.title}
               className="w-full h-64 object-cover"
+              width={400}
+              height={400}
             />
           )}
           <div className="p-4">

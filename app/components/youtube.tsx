@@ -1,4 +1,5 @@
 import { cache } from 'react';
+import Image from "next/image";
 
 interface YouTubeVideo {
   id: {
@@ -50,10 +51,12 @@ export default async function YouTubeVideos() {
       {videos.map((video) => (
         <div key={video.id.videoId} className="border rounded-lg overflow-hidden shadow-lg">
           <a href={`https://www.youtube.com/watch?v=${video.id.videoId}`} target="_blank" rel="noopener noreferrer">
-            <img 
+            <Image 
               src={video.snippet.thumbnails.medium.url}
               alt={video.snippet.title}
               className="w-full"
+              width={400}
+              height={225}
             />
             <div className="p-4">
               <h3 className="font-semibold text-lg">{video.snippet.title}</h3>
