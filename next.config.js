@@ -4,13 +4,16 @@ const nextConfig = {
   images: {
     formats: ['image/webp'],
     remotePatterns: [
-      {
+       {
         protocol: 'https',
-        hostname: 'img.youtube.com',
+        hostname: 'i.ytimg.com',
+        port: '',
+        pathname: '/vi/**',
       },
       {
         protocol: 'https',
         hostname: 'images-api.printify.com',
+        port: '',
       },
     ],
   },
