@@ -7,8 +7,6 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'img.youtube.com',
-        port: '',
-        pathname: '/vi/**', // Allows any YouTube thumbnail path under /vi
       },
       {
         protocol: 'https',
