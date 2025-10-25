@@ -17,14 +17,17 @@ interface YouTubeVideo {
   };
 }
 
+interface YouTubeVideosProps {
+  channelId?: string;
+}
+
 // Optional: Cache the fetch request
-const getYoutubeVideos = cache(async () => {
+const getYoutubeVideos = cache(async (channelId: string) => {
   const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
-  const CHANNEL_ID = 'UCUaRmNJ987yKZel2EBFA16A';
 
   try {
     const response = await fetch(
-      `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=12`,
+      `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${channelId}&part=snippet,id&order=date&maxResults=12`,
       { next: { revalidate: 3600 } } // Cache for 1 hour
     );
 
@@ -40,8 +43,8 @@ const getYoutubeVideos = cache(async () => {
   }
 });
 
-export default async function YouTubeVideos() {
-  const videos = (await getYoutubeVideos()).slice(0, 4);
+export default async function YouTubeVideos({ channelId = 'UCUaRmNJ987yKZel2EBFA16A' }: YouTubeVideosProps) {
+  const videos = (await getYoutubeVideos(channelId)).slice(0, 4);
 
   return (
     <section className="py-12">

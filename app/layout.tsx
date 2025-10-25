@@ -16,8 +16,15 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Home | Those Amador Bros",
-  description: "The home of the best Amador brothers",
+  title: "Those Amador Bros | Luis & Evan",
+  description: "Meet the talented Amador brothers - Luis, the rising child actor, and Evan, the YouTube gaming influencer. Discover their skills, achievements, and creative content.",
+  keywords: "Luis Amador, Evan Amador, child actor, YouTube influencer, Minecraft, gaming, theater, performance",
+  authors: [{ name: "Luis Amador" }],
+  openGraph: {
+    title: "Those Amador Bros | Luis & Evan",
+    description: "Meet the talented Amador brothers - Luis, the rising child actor, and Evan, the YouTube gaming influencer.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
